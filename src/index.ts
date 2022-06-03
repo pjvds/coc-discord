@@ -9,25 +9,9 @@ const logger: Logger = new Logger('discord');
 const ELAPSE_UPDATE_DURATION: number = 10000;
 
 const setActivity = (client: Client, startTimestamp: number) => {
-  const details = pipe(
-    O.fromNullable(workspace.uri),
-    O.filter((x) => x.startsWith('file:///')),
-    O.map((x) => x.substr(8)),
-    O.map((x) => x.split('/')),
-    O.filter((xs) => xs.length > 0),
-    O.map((xs) => xs.reverse()[0]),
-    O.map((x) => `Editing ${x}`),
-    O.toUndefined,
-  );
+  const details = "";
 
-  const state = pipe(
-    O.fromNullable(workspace.root),
-    O.map((x) => x.split('/')),
-    O.filter((xs) => xs.length > 0),
-    O.map((xs) => xs.reverse()[0]),
-    O.map((x) => `On ${x}`),
-    O.toUndefined,
-  );
+  const state = "";
 
   client.setActivity({ state, details, startTimestamp, instance: false });
 };
